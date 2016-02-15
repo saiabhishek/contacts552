@@ -1,0 +1,156 @@
+<div class="large-10 columns">
+	<div ng-show="Msg" class="alert-box">{{Msg}}</div>
+<form ng-show="showContac">
+	<div class="row" >
+		<div class="panel">
+		<h3>{{name}}</h3>
+		<ul>
+		<li>fathername:{{fathername}}</li>
+		<li>Company:{{Company}}</li>
+		<li>phone:{{phone}}</li>
+		<li>work_phone:{{work_phone}}</li>
+		<li>emailid:{{emailid}}</li>
+		<li>address:{{address}}</li>
+	<a class="button large" ng-click="hide()" >-</a>
+		</ul>
+		</div>
+		</div>
+		</form>
+
+	</div>	
+		<div class"row" ng-controller="ContactsCtrl" ng-submit="addFormSubmit()">
+			<div class="large in column">
+			<form ng-show="addFormShow">
+			<h3>add Form</h3>
+				<div class="row">
+					<div class="large-4 columns">
+					<label>Name:
+					<input type="text" ng-model="name" placeholder="contact name" required />
+					</label>
+					</div>
+					<div class="large-4 columns">
+					<label>father name:
+					<input type="text" ng-model="fathername" placeholder="contact fathername" required />
+					</label>
+					</div>
+					<div class="large-4 columns">
+					<label>Company:
+					<input type="text" ng-model="Company" placeholder="contact Company" required />
+					</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-4 columns">
+					<label>work phone:
+					<input type="text" ng-model="phone" placeholder="contact phoneno."  />
+					</label>
+					</div>
+					<div class="large-4 columns">
+					<label>work phone:
+					<input type="text" ng-model="work_phone" placeholder="contact work"  />
+					</label>
+					</div>
+					<div class="large-4 columns">
+					<label>emailid:
+					<input type="text" ng-model="emailid" placeholder="contact emailid" required />
+					</label>
+					</div>
+					<div class="large-4 columns">
+					<label>Address:
+					<input type="text" ng-model="address" placeholder="contact address" required />
+					</label>
+					</div>
+					<div class="row">
+						<div class="large-12 column">
+						<input type="submit" value="Add-Contacts" class="button tiny alert">
+
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class"row" ng-controller="ContactsCtrl" ng-submit="editFormSubmit()">
+			<div class="large in column">
+			<form ng-show="editFormShow1">
+			<h3>Edit Form</h3>
+				<div class="row">
+					<div class="large-4 columns">
+					<label>Name:
+					<input type="text" ng-model="name1" placeholder="contact name"  required />
+					</label>
+					</div>
+					<div class="large-4 columns">
+					<label>father name:
+					<input type="text" ng-model="fathername1" placeholder="contact fathername"  required />
+					</label>
+					</div>
+					<div class="large-4 columns">
+					<label>Company:
+					<input type="text" ng-model="Company1" placeholder="contact Company"  required />
+					</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-4 columns">
+					<label>work phone:
+					<input type="text" ng-model="phone1" placeholder="contact phoneno."  />
+					</label>
+					</div>
+					<div class="large-4 columns">
+					<label>work phone:
+					<input type="text" ng-model="work_phone1" placeholder="contact work"  />
+					</label>
+					</div>
+					<div class="large-4 columns">
+					<label>emailid:
+					<input type="text" ng-model="emailid1" placeholder="contact emailid"required />
+					</label>
+					</div>
+					<div class="large-4 columns">
+					<label>Address:
+					<input type="text" ng-model="address1" placeholder="contact address" required />
+					</label>
+					</div>
+					<div class="row">
+						<div class="large-12 column">
+						<input type="submit" value="Add-Contacts" class="button tiny alert">
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="large in column">
+		<h3>Your Contacts list</h3>
+			<table>
+			<thead>
+				<tr>
+				<th width="200px">name</th>
+				<th width="200px">company</th>
+				<th width="25%">email</th>
+				<th width="25%">Action</th>
+				</tr>
+
+			</thead>
+			<tbody>
+				<tr ng-repeat="contact in contacts">
+					<td><a ng-click='showContact(contact)'>{{contact.name}}</a></td>
+					<td>{{contact.Company}}</td>
+					<td>{{contact.emailid}}</td>
+					<td><a class="button tiny" ng-click="editFormShow(contact)">edit</a> <a class="button tiny alert" ng-click="remove(contact)">delete</a></td>
+				</tr>
+			</tbody>
+			</table>
+	</div>
+	<div class="small-12 large-2 columns">
+	<a class="button large" ng-click="showAddForm()" ng-hide="addFormShow">+</a>
+	<a class="button large" ng-click="hide()" ng-show="addFormShow">-</a>
+<a class="button large" ng-click="hide()" ng-show="showContac">-</a>
+			
+
+	</div>
+
+</div>
